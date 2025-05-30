@@ -16,7 +16,7 @@ export default function ServicesPage() {
       ]
     },
     {
-      icon: 'codeSquare',
+      icon: 'code',
       title: 'Web Development',
       description: 'High-performance websites that combine simple & intuitive user design with extended functionality to bring your ideal website to life.',
       features: [
