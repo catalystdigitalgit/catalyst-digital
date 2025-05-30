@@ -115,7 +115,6 @@ export default function ServicesPage() {
           <Button 
             variant="outline"
             size="lg"
-            className="border-primary text-primary hover:bg-primary/10"
             onClick={() => window.location.href = '/contact'}
           >
             Schedule a Consultation
