@@ -36,8 +36,8 @@ function App() {
       <MouseParticles
         g={0.5}
         num={6}
-        radius={1}
-        life={10.5}
+        radius={2}
+        life={5.5}
         v={0.3}
         color="hsl(var(--primary))"
         cull="col,image-wrapper"
