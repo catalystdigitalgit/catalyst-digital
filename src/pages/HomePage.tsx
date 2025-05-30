@@ -26,7 +26,7 @@ export default function HomePage() {
                 Your home for
               </div>
               <div className="flex items-center gap-2 text-4xl md:text-5xl lg:text-6xl font-medium">
-                <span className="digital-text">digital</span>
+                <span className="digital-text text-3xl md:text-4xl lg:text-5xl">digital</span>
                 <SplitText
                   text="excellence"
                   className="text-primary"
