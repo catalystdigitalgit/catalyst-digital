@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { SplitText } from '@/components/animation/SplitText';
@@ -87,14 +87,14 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-              <Button 
-                variant="high"
-                size="lg"
-                className="w-full mt-auto"
-                rightIcon={<ArrowRight className="h-5 w-5" />}
-              >
-                BOOK A CALL
-              </Button>
+            <Button 
+              variant="high"
+              size="lg"
+              className="w-full mt-auto"
+              rightIcon={<ArrowUpRight className="h-5 w-5" />}
+            >
+              BOOK A CALL
+            </Button>
           </div>
         </div>
       </section>
