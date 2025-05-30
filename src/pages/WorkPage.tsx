@@ -1,12 +1,18 @@
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/common/Button';
 import { Icon } from '@/components/common/Icon';
+import { Slider } from '@/components/common/Slider';
 
 export default function WorkPage() {
   const projects = [
     {
       title: "E-commerce Platform Redesign",
       client: "Fashion Retailer",
-      image: "https://images.pexels.com/photos/18069362/pexels-photo-18069362.jpeg",
+      images: [
+        "https://images.pexels.com/photos/18069362/pexels-photo-18069362.jpeg",
+        "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
+        "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg"
+      ],
       category: "Web Design",
       description: "Complete redesign of an e-commerce platform, resulting in a 40% increase in conversion rate.",
       technologies: ["React", "Node.js", "Stripe", "AWS"]
@@ -14,7 +20,11 @@ export default function WorkPage() {
     {
       title: "Mobile Banking App",
       client: "Financial Institution",
-      image: "https://images.pexels.com/photos/14936128/pexels-photo-14936128.jpeg",
+      images: [
+        "https://images.pexels.com/photos/14936128/pexels-photo-14936128.jpeg",
+        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
+        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg"
+      ],
       category: "Mobile Development",
       description: "Secure and user-friendly mobile banking application with biometric authentication.",
       technologies: ["React Native", "Firebase", "TypeScript"]
@@ -22,7 +32,11 @@ export default function WorkPage() {
     {
       title: "Corporate Website Overhaul",
       client: "Tech Startup",
-      image: "https://images.pexels.com/photos/18440615/pexels-photo-18440615.jpeg",
+      images: [
+        "https://images.pexels.com/photos/18440615/pexels-photo-18440615.jpeg",
+        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
+        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg"
+      ],
       category: "Web Development",
       description: "Modern, responsive website with integrated CMS and analytics dashboard.",
       technologies: ["Next.js", "Tailwind CSS", "Supabase"]
@@ -30,7 +44,11 @@ export default function WorkPage() {
     {
       title: "Digital Marketing Campaign",
       client: "Lifestyle Brand",
-      image: "https://images.pexels.com/photos/18023772/pexels-photo-18023772.jpeg",
+      images: [
+        "https://images.pexels.com/photos/18023772/pexels-photo-18023772.jpeg",
+        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
+        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg"
+      ],
       category: "Digital Marketing",
       description: "Comprehensive digital marketing strategy that increased social media engagement by 150%.",
       technologies: ["Social Media", "SEO", "Content Marketing"]
@@ -61,14 +79,23 @@ export default function WorkPage() {
             {projects.map((project, index) => (
               <div 
                 key={index} 
-                className="bg-card border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-card border rounded-card overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="aspect-video relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  <Slider className="h-full">
+                    {project.images.map((image, imageIndex) => (
+                      <div 
+                        key={imageIndex}
+                        className="flex-[0_0_100%] min-w-0 h-full relative"
+                      >
+                        <img 
+                          src={image} 
+                          alt={`${project.title} - Image ${imageIndex + 1}`}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </Slider>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
@@ -85,7 +112,7 @@ export default function WorkPage() {
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="bg-secondary px-3 py-1 rounded-full text-sm"
+                        className="bg-secondary px-3 py-1 rounded-button text-sm"
                       >
                         {tech}
                       </span>
