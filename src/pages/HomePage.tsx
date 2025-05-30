@@ -82,7 +82,7 @@ export default function HomePage() {
                 >
                   <h2 className="text-2xl font-medium relative inline-block">
                     {item.title}
-                    <span className="absolute -bottom-1 left-0 w-[80%] h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                    <span className="absolute -bottom-1 left-0 w-[120%] h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                   </h2>
                 </div>
               ))}
