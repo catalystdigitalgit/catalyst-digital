@@ -87,7 +87,6 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <div>
               <Button 
                 variant="high"
                 size="lg"
@@ -96,7 +95,6 @@ export default function HomePage() {
               >
                 BOOK A CALL
               </Button>
-            </div>
           </div>
         </div>
       </section>
