@@ -41,7 +41,7 @@ export default function Header() {
               to="/" 
               className="text-2xl font-bold text-primary"
             >
-              Brand
+              Catalyst Digital
             </NavLink>
           </div>
 
