@@ -23,27 +23,34 @@
     --background: 0 0% 10%;
     --foreground: 0 0% 98%;
     
+    /* Card colors */
     --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
     
+    /* Popover colors */
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
     
-    --primary: 248 68% 40%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary colors - Yellow theme */
+    --primary: 48 74% 74%;
+    --primary-foreground: 0 0% 10%;
     
+    /* Secondary colors */
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
     
+    /* Muted colors */
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
     
-    --accent: 248 68% 40%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent colors */
+    --accent: 48 74% 74%;
+    --accent-foreground: 0 0% 10%;
     
+    /* Border & input colors */
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 248 68% 40%;
+    --ring: 48 74% 74%;
     
     --radius: 9999px;
   }
