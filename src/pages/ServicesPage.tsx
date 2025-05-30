@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/common/Button';
 import { Icon } from '@/components/common/Icon';
+import { SplitText } from '@/components/animation/SplitText';
 
 export default function ServicesPage() {
   const services = [
@@ -112,7 +113,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to <span class="text-primary">Transform</span> Your Digital Presence?
+            Ready to <SplitText text="Transform" className="text-primary inline-block" /> Your Digital Presence?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help your business grow with our digital solutions.
