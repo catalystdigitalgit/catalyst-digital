@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -7,11 +7,9 @@ import MainLayout from '@/components/layout/MainLayout';
 
 // Pages
 import HomePage from '@/pages/HomePage';
-import AboutPage from '@/pages/AboutPage';
+import ServicesPage from '@/pages/ServicesPage';
+import WorkPage from '@/pages/WorkPage';
 import ContactPage from '@/pages/ContactPage';
-import FeaturesPage from '@/pages/FeaturesPage';
-import DemoPage from '@/pages/DemoPage';
-import PricingPage from '@/pages/PricingPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 // Components
@@ -38,11 +36,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="work" element={<WorkPage />} />
             <Route path="contact" element={<ContactPage />} />
-            <Route path="features" element={<FeaturesPage />} />
-            <Route path="demo" element={<DemoPage />} />
-            <Route path="pricing" element={<PricingPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
