@@ -16,7 +16,7 @@ export default function ServicesPage() {
       ]
     },
     {
-      icon: 'code',
+      icon: 'codeSquare',
       title: 'Web Development',
       description: 'High-performance websites that combine simple & intuitive user design with extended functionality to bring your ideal website to life.',
       features: [
@@ -38,7 +38,7 @@ export default function ServicesPage() {
       ]
     },
     {
-      icon: 'image',
+      icon: 'camera',
       title: 'Content Creation',
       description: 'Working with you to curate a unique digital narrative that captures new audiences and builds customer loyalty.',
       features: [
