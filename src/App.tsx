@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
+import MouseParticles from 'react-mouse-particles';
 
 // Layouts
 import MainLayout from '@/components/layout/MainLayout';
@@ -32,6 +33,12 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <MouseParticles
+        g={1}
+        color="hsl(var(--primary))"
+        cull="col,image-wrapper"
+        alpha={0.3}
+      />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
