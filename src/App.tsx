@@ -38,7 +38,7 @@ function App() {
         num={2}
         radius={2}
         life={0.5}
-        v={0.3}
+        v={0.1}
         color="hsl(var(--primary))"
         cull="col,image-wrapper"
         alpha={0.2}
