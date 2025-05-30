@@ -112,7 +112,7 @@ export default function ServicesPage() {
       <section className="py-20 bg-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to <i class="text-primary">Transform</i> Your Digital Presence?
+            Ready to <span class="text-primary digital-text">Transform</span> Your Digital Presence?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help your business grow with our digital solutions.
