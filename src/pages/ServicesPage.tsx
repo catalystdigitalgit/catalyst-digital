@@ -13,7 +13,8 @@ export default function ServicesPage() {
         'Print & Digital Products',
         'Visual Assets',
         'Typography & Colour'
-      ]
+      ],
+      id: 'branding'
     },
     {
       icon: 'code',
@@ -24,7 +25,8 @@ export default function ServicesPage() {
         'Mobile Optimisation',
         'Hosting & Domain Connection',
         'SEO'
-      ]
+      ],
+      id: 'development'
     },
     {
       icon: 'shoppingCart',
@@ -35,7 +37,8 @@ export default function ServicesPage() {
         'Product Management',
         'Email Automations',
         'Booking Systems'
-      ]
+      ],
+      id: 'ecommerce'
     },
     {
       icon: 'camera',
@@ -46,7 +49,8 @@ export default function ServicesPage() {
         'Account Management',
         'Engagement Strategies',
         'Curation'
-      ]
+      ],
+      id: 'content'
     }
   ];
 
@@ -82,6 +86,7 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div 
                 key={index}
+                data-service={service.id}
                 className="bg-card border rounded-card p-8 hover:shadow-lg transition-shadow"
               >
                 <div className="h-12 w-12 bg-primary/10 text-primary rounded-card flex items-center justify-center mb-6">

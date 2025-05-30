@@ -1,8 +1,21 @@
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { SplitText } from '@/components/animation/SplitText';
 
 export default function HomePage() {
+  const navigate = useNavigate();
+
+  const handleServiceClick = (service: string) => {
+    navigate('/services');
+    setTimeout(() => {
+      const element = document.querySelector(`[data-service="${service}"]`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
+
   return (
     <div className="flex flex-col">
       <section className="min-h-screen bg-background flex items-center">
@@ -53,11 +66,24 @@ export default function HomePage() {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-medium mb-4">BRANDING</h2>
-              <h2 className="text-2xl font-medium mb-4">WEB DEVELOPMENT</h2>
-              <h2 className="text-2xl font-medium mb-4">E-COMMERCE SOLUTIONS</h2>
-              <h2 className="text-2xl font-medium mb-4">CONTENT CREATION</h2>
+            <div className="space-y-8">
+              {[
+                { title: 'BRANDING & IDENTITY', service: 'branding' },
+                { title: 'WEB DEVELOPMENT', service: 'development' },
+                { title: 'E-COMMERCE SOLUTIONS', service: 'ecommerce' },
+                { title: 'CONTENT CREATION', service: 'content' }
+              ].map((item) => (
+                <div
+                  key={item.service}
+                  onClick={() => handleServiceClick(item.service)}
+                  className="group cursor-pointer"
+                >
+                  <h2 className="text-2xl font-medium relative inline-block">
+                    {item.title}
+                    <span className="absolute -bottom-1 left-0 w-[80%] h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                  </h2>
+                </div>
+              ))}
             </div>
             <div>
               <Button 
