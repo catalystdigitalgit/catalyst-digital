@@ -8,6 +8,7 @@
   --font-family-sans: 'Switzer Variable', sans-serif;
   --font-family-heading: 'Switzer Variable', sans-serif;
   --font-family-digital: 'Orbitron', sans-serif;
+  --font-family-cursive: 'Playfair Display', serif;
   
   font-family: var(--font-family-sans);
   font-size: var(--font-size-base);
@@ -23,31 +24,24 @@
     --background: 0 0% 10%;
     --foreground: 0 0% 98%;
     
-    /* Card colors */
     --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
     
-    /* Popover colors */
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
     
-    /* Primary colors - Yellow theme */
     --primary: 48 74% 74%;
     --primary-foreground: 0 0% 10%;
     
-    /* Secondary colors */
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
     
-    /* Muted colors */
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
     
-    /* Accent colors */
     --accent: 48 74% 74%;
     --accent-foreground: 0 0% 10%;
     
-    /* Border & input colors */
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 48 74% 74%;
@@ -74,4 +68,10 @@
 
 .digital-text {
   font-family: var(--font-family-digital);
+  font-size: 0.9em;
+}
+
+.cursive-text {
+  font-family: var(--font-family-cursive);
+  font-style: italic;
 }

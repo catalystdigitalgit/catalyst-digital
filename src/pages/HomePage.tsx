@@ -29,7 +29,7 @@ export default function HomePage() {
                 <span className="digital-text">digital</span>
                 <SplitText
                   text="excellence"
-                  className="text-primary"
+                  className="text-primary cursive-text"
                   delay={0.1}
                   duration={0.8}
                   ease="power4.out"
