@@ -11,7 +11,8 @@ export default function WorkPage() {
       images: [
         "https://images.pexels.com/photos/18069362/pexels-photo-18069362.jpeg",
         "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
-        "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg"
+        "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg",
+        "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg"
       ],
       category: "Web Design",
       description: "Complete redesign of an e-commerce platform, resulting in a 40% increase in conversion rate.",
@@ -23,7 +24,8 @@ export default function WorkPage() {
       images: [
         "https://images.pexels.com/photos/14936128/pexels-photo-14936128.jpeg",
         "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
-        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg"
+        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
+        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
       ],
       category: "Mobile Development",
       description: "Secure and user-friendly mobile banking application with biometric authentication.",
@@ -35,7 +37,8 @@ export default function WorkPage() {
       images: [
         "https://images.pexels.com/photos/18440615/pexels-photo-18440615.jpeg",
         "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
-        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg"
+        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
+        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
       ],
       category: "Web Development",
       description: "Modern, responsive website with integrated CMS and analytics dashboard.",
@@ -47,7 +50,8 @@ export default function WorkPage() {
       images: [
         "https://images.pexels.com/photos/18023772/pexels-photo-18023772.jpeg",
         "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
-        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg"
+        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
+        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
       ],
       category: "Digital Marketing",
       description: "Comprehensive digital marketing strategy that increased social media engagement by 150%.",
@@ -82,7 +86,7 @@ export default function WorkPage() {
                 className="bg-card border rounded-card overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="aspect-video relative overflow-hidden">
-                  <Slider className="h-full">
+                  <Slider showArrows showDots className="h-full">
                     {project.images.map((image, imageIndex) => (
                       <div 
                         key={imageIndex}
