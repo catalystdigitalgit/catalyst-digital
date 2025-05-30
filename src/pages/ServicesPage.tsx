@@ -7,7 +7,7 @@ export default function ServicesPage() {
     {
       icon: 'paintBrush',
       title: 'Web Design',
-      description: 'Beautiful, responsive websites that capture your brand's essence and engage your audience.',
+      description: 'Beautiful, responsive websites that capture your brand\'s essence and engage your audience.',
       features: [
         'Custom UI/UX Design',
         'Mobile-First Approach',
