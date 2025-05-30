@@ -66,16 +66,7 @@ export default function Footer() {
             <h3 className="text-lg font-medium">Contact</h3>
             <ul className="space-y-2">
               <li className="text-muted-foreground">
-                123 Business Street
-              </li>
-              <li className="text-muted-foreground">
-                San Francisco, CA 94105
-              </li>
-              <li className="text-muted-foreground">
-                hello@example.com
-              </li>
-              <li className="text-muted-foreground">
-                +1 (555) 000-0000
+                contact@catalystdigital.uk
               </li>
             </ul>
           </div>
