@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand column */}
           <div className="space-y-4">
-            <h3 className="text-lg font-medium">Brand</h3>
+            <h3 className="text-lg font-medium">Catalyst Digital</h3>
             <p className="text-muted-foreground max-w-xs">
               Creating innovative solutions for modern businesses since 2025.
             </p>
