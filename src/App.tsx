@@ -34,10 +34,14 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <MouseParticles
-        g={1}
+        g={0.5}
+        num={6}
+        radius={4}
+        life={1.5}
+        v={0.3}
         color="hsl(var(--primary))"
         cull="col,image-wrapper"
-        alpha={0.3}
+        alpha={0.2}
       />
       <Suspense fallback={<Loader />}>
         <Routes>
