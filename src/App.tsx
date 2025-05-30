@@ -33,16 +33,6 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <MouseParticles
-        g={0.5}
-        num={6}
-        radius={2}
-        life={5.5}
-        v={0.3}
-        color="hsl(var(--primary))"
-        cull="col,image-wrapper"
-        alpha={0.2}
-      />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
