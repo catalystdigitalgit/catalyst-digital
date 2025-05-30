@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
@@ -36,28 +36,31 @@ export function SplitText({
   onLetterAnimationComplete,
 }: SplitTextProps) {
   const elementRef = useRef<HTMLDivElement>(null);
+  const splitRef = useRef<SplitType | null>(null);
+  const timelineRef = useRef<gsap.Timeline | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
-  useEffect(() => {
-    if (!elementRef.current) return;
+  const animate = () => {
+    if (!elementRef.current || !splitRef.current) return;
 
-    const split = new SplitType(elementRef.current, {
-      types: [splitType],
-      tagName: 'span',
-    });
-
-    const elements = split[splitType];
+    const elements = splitRef.current[splitType];
     
-    // Set initial position
+    // Kill existing timeline if it exists
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+
+    // Reset elements to initial state
     gsap.set(elements, from);
 
-    // Create timeline with no scroll trigger for initial animation
-    const tl = gsap.timeline({
+    // Create new timeline
+    timelineRef.current = gsap.timeline({
       onComplete: onLetterAnimationComplete,
     });
 
     // Animate each element with a slight delay
     elements.forEach((element: HTMLElement, i: number) => {
-      tl.to(
+      timelineRef.current?.to(
         element,
         {
           ...to,
@@ -68,18 +71,42 @@ export function SplitText({
         i * delay // Stagger the animations
       );
     });
+  };
+
+  useEffect(() => {
+    if (!elementRef.current) return;
+
+    splitRef.current = new SplitType(elementRef.current, {
+      types: [splitType],
+      tagName: 'span',
+    });
+
+    animate();
 
     return () => {
-      tl.kill();
-      split.revert();
+      splitRef.current?.revert();
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+      }
     };
-  }, [text, splitType, delay, duration, ease, from, to, threshold, rootMargin, onLetterAnimationComplete]);
+  }, [text, splitType, delay, duration, ease]);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+    animate();
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   return (
     <div
       ref={elementRef}
-      className={cn(className)}
+      className={cn(className, 'cursor-pointer')}
       style={{ textAlign }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {text}
     </div>
