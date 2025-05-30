@@ -113,7 +113,13 @@ export default function ServicesPage() {
       <section className="py-20 bg-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to <SplitText text="Transform" className="text-primary inline-block" /> Your Digital Presence?
+            Ready to <SplitText text="Transform" className="text-primary"
+                  delay={0.1}
+                  duration={0.8}
+                  ease="power4.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 40 }}
+                  to={{ opacity: 1, y: 0 }} /> Your Digital Presence?
           </h2>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help your business grow with our digital solutions.
