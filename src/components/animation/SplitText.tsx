@@ -38,10 +38,11 @@ export function SplitText({
   const elementRef = useRef<HTMLDivElement>(null);
   const splitRef = useRef<SplitType | null>(null);
   const timelineRef = useRef<gsap.Timeline | null>(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const animate = () => {
-    if (!elementRef.current || !splitRef.current) return;
+    if (!elementRef.current || !splitRef.current || isAnimating) return;
 
     const elements = splitRef.current[splitType];
     
@@ -50,12 +51,20 @@ export function SplitText({
       timelineRef.current.kill();
     }
 
+    setIsAnimating(true);
+
     // Reset elements to initial state
     gsap.set(elements, from);
 
     // Create new timeline
     timelineRef.current = gsap.timeline({
-      onComplete: onLetterAnimationComplete,
+      onComplete: () => {
+        setIsAnimating(false);
+        setHasAnimated(true);
+        if (onLetterAnimationComplete) {
+          onLetterAnimationComplete();
+        }
+      },
     });
 
     // Animate each element with a slight delay
@@ -92,12 +101,10 @@ export function SplitText({
   }, [text, splitType, delay, duration, ease]);
 
   const handleMouseEnter = () => {
-    setIsHovering(true);
-    animate();
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
+    // Only trigger animation if not currently animating and has completed initial animation
+    if (!isAnimating && hasAnimated) {
+      animate();
+    }
   };
 
   return (
@@ -106,7 +113,6 @@ export function SplitText({
       className={cn(className, 'cursor-pointer')}
       style={{ textAlign }}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {text}
     </div>
