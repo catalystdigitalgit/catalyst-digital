@@ -20,8 +20,6 @@ import { Button } from '@/components/common/Button';
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
-  phone: z.string().optional(),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -35,8 +33,6 @@ export function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
-      subject: '',
       message: '',
     },
   });
@@ -88,36 +84,6 @@ export function ContactForm() {
                 <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input type="email" placeholder="john@example.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone (Optional)</FormLabel>
-                <FormControl>
-                  <Input type="tel" placeholder="+1 (555) 000-0000" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="subject"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Subject</FormLabel>
-                <FormControl>
-                  <Input placeholder="How can we help?" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
