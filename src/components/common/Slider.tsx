@@ -67,9 +67,9 @@ export function Slider({
             size="sm"
             className={cn(
               'absolute left-4 top-1/2 -translate-y-1/2',
-              'bg-background/80 backdrop-blur-sm hover:bg-background/90',
+              'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
-              'opacity-0 group-hover:opacity-100 transition-opacity duration-200',
+              'opacity-0 group-hover:opacity-100 transition-all duration-200',
               prevBtnDisabled && 'hidden'
             )}
             onClick={scrollPrev}
@@ -83,9 +83,9 @@ export function Slider({
             size="sm"
             className={cn(
               'absolute right-4 top-1/2 -translate-y-1/2',
-              'bg-background/80 backdrop-blur-sm hover:bg-background/90',
+              'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
-              'opacity-0 group-hover:opacity-100 transition-opacity duration-200',
+              'opacity-0 group-hover:opacity-100 transition-all duration-200',
               nextBtnDisabled && 'hidden'
             )}
             onClick={scrollNext}
@@ -97,12 +97,12 @@ export function Slider({
       )}
 
       {showDots && scrollSnaps.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 px-3 py-2 rounded-full bg-background/80 backdrop-blur-sm">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-1.5 px-2 py-1.5 rounded-full bg-background/80 backdrop-blur-sm">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               className={cn(
-                'w-2.5 h-2.5 rounded-full transition-all duration-200',
+                'w-2 h-2 rounded-full transition-all duration-200',
                 index === selectedIndex 
                   ? 'bg-primary scale-110' 
                   : 'bg-foreground/20 hover:bg-foreground/40'
