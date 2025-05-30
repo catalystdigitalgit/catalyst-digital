@@ -76,7 +76,7 @@ export default {
           light: 'hsl(var(--accent-light))',
           dark: 'hsl(var(--accent-dark))',
           foreground: 'hsl(var(--accent-foreground))',
-          blue: '#301FAC',
+          blue: '#231493',
         },
         
         destructive: {
