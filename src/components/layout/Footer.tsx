@@ -84,7 +84,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Stay Updated</h3>
             <p className="text-muted-foreground">
-              Drop your email here and we can get in touch with you.
+              Drop your email here and we'll' get in touch with you.
             </p>
             <div className="flex gap-2">
               <input 
