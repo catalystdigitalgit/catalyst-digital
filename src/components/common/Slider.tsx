@@ -97,15 +97,15 @@ export function Slider({
       )}
 
       {showDots && scrollSnaps.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 px-3 py-2 rounded-full bg-background/80 backdrop-blur-sm">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               className={cn(
-                'w-2 h-2 rounded-full transition-all duration-200',
+                'w-2.5 h-2.5 rounded-full transition-all duration-200',
                 index === selectedIndex 
-                  ? 'bg-background scale-125' 
-                  : 'bg-background/60 hover:bg-background/80'
+                  ? 'bg-primary scale-110' 
+                  : 'bg-foreground/20 hover:bg-foreground/40'
               )}
               onClick={() => scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}
