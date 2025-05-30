@@ -35,10 +35,10 @@ function App() {
       <ScrollToTop />
       <MouseParticles
         g={0.5}
-        num={2}
-        radius={2}
-        life={0.5}
-        v={0.1}
+        num={6}
+        radius={4}
+        life={10.5}
+        v={0.3}
         color="hsl(var(--primary))"
         cull="col,image-wrapper"
         alpha={0.2}
