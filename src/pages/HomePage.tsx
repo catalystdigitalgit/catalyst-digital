@@ -91,7 +91,7 @@ export default function HomePage() {
               <Button 
                 variant="high"
                 size="lg"
-                className="w-full"
+                className="w-full mt-auto"
                 rightIcon={<ArrowRight className="h-5 w-5" />}
               >
                 BOOK A CALL
