@@ -48,6 +48,7 @@ export default function HomePage() {
                 variant="high" 
                 size="lg" 
                 rightIcon={<ArrowRight className="h-5 w-5" />}
+                onClick={() => navigate('/contact')}
               >
                 Get Started
               </Button>
@@ -55,6 +56,7 @@ export default function HomePage() {
                 variant="outline" 
                 size="lg"
                 className="border-primary text-primary hover:bg-primary/10"
+                onClick={() => navigate('/work')}
               >
                 View Our Work
               </Button>
