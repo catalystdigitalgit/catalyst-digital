@@ -113,7 +113,7 @@ export default function ServicesPage() {
             Let's discuss how we can help your business grow with our digital solutions.
           </p>
           <Button 
-            variant="primary"
+            variant="high"
             size="lg"
             className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10"
             onClick={() => window.location.href = '/contact'}
