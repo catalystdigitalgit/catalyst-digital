@@ -53,11 +53,6 @@ export default function Footer() {
                   Our Work
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contact
-                </NavLink>
-              </li>
             </ul>
           </div>
           
@@ -65,6 +60,11 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Contact</h3>
             <ul className="space-y-2">
+              <li>
+                <NavLink to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  Contact Us
+                </NavLink>
+              </li>
               <li className="text-muted-foreground">
                 contact@catalystdigital.uk
               </li>
@@ -92,16 +92,16 @@ export default function Footer() {
         
         <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Brand. All rights reserved.
+            &copy; {currentYear} Catalyst Digital. All rights reserved.
           </p>
-          <div className="flex space-x-4 text-sm text-muted-foreground">
+          {/* <div className="flex space-x-4 text-sm text-muted-foreground">
             <NavLink to="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </NavLink>
             <NavLink to="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </NavLink>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

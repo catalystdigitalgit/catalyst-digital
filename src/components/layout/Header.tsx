@@ -3,10 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/common/Button';
 import { Menu, X } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 const navItems = [
-  { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
   { label: 'Our Work', path: '/work' },
   { label: 'Contact', path: '/contact' },
@@ -30,7 +28,7 @@ export default function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b shadow-sm'
+          ? 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b shadow-md'
           : 'bg-transparent'
       )}
     >
@@ -39,7 +37,7 @@ export default function Header() {
           <div className="flex items-center">
             <NavLink 
               to="/" 
-              className="text-2xl font-bold text-primary"
+              className="text-2xl font-bold text-primary cursor-pointer"
             >
               Catalyst Digital
             </NavLink>
@@ -60,7 +58,7 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </nav>
 
           <div className="hidden md:block">
@@ -68,7 +66,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center space-x-4 md:hidden">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden"

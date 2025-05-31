@@ -1,62 +1,29 @@
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/common/Button';
-import { Icon } from '@/components/common/Icon';
 import { Slider } from '@/components/common/Slider';
+import { CTASection } from '@/components/common/CTASection';
 
 export default function WorkPage() {
   const projects = [
     {
-      title: "E-commerce Platform Redesign",
-      client: "Fashion Retailer",
+      title: "Dazy Chain",
       images: [
-        "https://images.pexels.com/photos/18069362/pexels-photo-18069362.jpeg",
-        "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg",
-        "https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg",
-        "https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg"
+        "/images/dazy-chain-1.jpg",
+        "/images/dazy-chain-2.jpg"
       ],
-      category: "Web Design",
-      description: "Complete redesign of an e-commerce platform, resulting in a 40% increase in conversion rate.",
-      technologies: ["React", "Node.js", "Stripe", "AWS"]
+      category: "Branding & E-commerce",
+      description: "Elevated their digital presence with premium product photography, strategic paid advertising campaigns, and comprehensive social media management. Our custom Shopify solution streamlined their e-commerce operations while maintaining a cohesive brand identity across all touchpoints.",
+      technologies: ["Branding & Identity", "Web Design", "Content Creation"]
     },
     {
-      title: "Mobile Banking App",
-      client: "Financial Institution",
+      title: "The Party Booth Co.",
       images: [
-        "https://images.pexels.com/photos/14936128/pexels-photo-14936128.jpeg",
-        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
-        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
-        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
+        "/images/party-booth-1.jpg",
+        "/images/party-booth-2.jpg",
+        "/images/party-booth-3.jpg"
       ],
-      category: "Mobile Development",
-      description: "Secure and user-friendly mobile banking application with biometric authentication.",
-      technologies: ["React Native", "Firebase", "TypeScript"]
+      category: "Web Design & Development",
+      description: "Transforming photo booths into an unforgettable brand presence. We crafted a bespoke logo, business cards, and captivating website that effortlessly handles client deposits and payments to eye-catching pamphlets.",
+      technologies: ["Branding & Identity", "Web Design & Development", "E-commerce Solutions", "Content Creation"]
     },
-    {
-      title: "Corporate Website Overhaul",
-      client: "Tech Startup",
-      images: [
-        "https://images.pexels.com/photos/18440615/pexels-photo-18440615.jpeg",
-        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
-        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
-        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
-      ],
-      category: "Web Development",
-      description: "Modern, responsive website with integrated CMS and analytics dashboard.",
-      technologies: ["Next.js", "Tailwind CSS", "Supabase"]
-    },
-    {
-      title: "Digital Marketing Campaign",
-      client: "Lifestyle Brand",
-      images: [
-        "https://images.pexels.com/photos/18023772/pexels-photo-18023772.jpeg",
-        "https://images.pexels.com/photos/5849592/pexels-photo-5849592.jpeg",
-        "https://images.pexels.com/photos/5849577/pexels-photo-5849577.jpeg",
-        "https://images.pexels.com/photos/5849574/pexels-photo-5849574.jpeg"
-      ],
-      category: "Digital Marketing",
-      description: "Comprehensive digital marketing strategy that increased social media engagement by 150%.",
-      technologies: ["Social Media", "SEO", "Content Marketing"]
-    }
   ];
 
   return (
@@ -130,24 +97,14 @@ export default function WorkPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-primary-foreground/90 text-lg mb-8 max-w-2xl mx-auto">
-            Let's create something amazing together. Contact us to discuss your project needs.
-          </p>
-          <Button 
-            variant="outline"
-            size="lg"
-            className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Get in Touch
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Start Your Project?"
+        description="Let's create something amazing together. Contact us to discuss your project needs."
+        buttonText="Get in Touch"
+        buttonAction={() => window.location.href = '/contact'}
+        buttonVariant="outline"
+        backgroundColor="secondary"
+      />
     </div>
   );
 }

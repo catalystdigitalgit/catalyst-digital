@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { SplitText } from '@/components/animation/SplitText';
+import { Icon } from '@/components/common/Icon';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl">
             <h1 className="mb-6">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-medium mb-2">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 Your home for
               </div>
               <div className="flex items-center gap-2 text-4xl md:text-5xl lg:text-6xl font-medium">
@@ -70,16 +71,19 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-8">
               {[
-                { title: 'BRANDING & IDENTITY', service: 'branding' },
-                { title: 'WEB DEVELOPMENT', service: 'development' },
-                { title: 'E-COMMERCE SOLUTIONS', service: 'ecommerce' },
-                { title: 'CONTENT CREATION', service: 'content' }
+                { title: 'Branding & Identity', service: 'branding', icon: 'paintBrush' },
+                { title: 'Web Development', service: 'development', icon: 'computerDesktop' },
+                { title: 'E-Commerce Solutions', service: 'ecommerce', icon: 'shoppingCart' },
+                { title: 'Content Creation', service: 'content', icon: 'camera' }
               ].map((item) => (
                 <div
                   key={item.service}
                   onClick={() => handleServiceClick(item.service)}
-                  className="group cursor-pointer"
+                  className="group cursor-pointer flex items-center gap-3"
                 >
+                  <div className="h-10 w-10 bg-primary/10 text-primary rounded-md flex items-center justify-center">
+                    <Icon name={item.icon} />
+                  </div>
                   <h2 className="text-2xl font-medium relative inline-block">
                     {item.title}
                     <span className="absolute -bottom-1 left-0 w-[120%] h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
@@ -93,7 +97,7 @@ export default function HomePage() {
               className="w-full mt-auto"
               rightIcon={<ArrowUpRight className="h-5 w-5" />}
             >
-              BOOK A CALL
+              Book a Call
             </Button>
           </div>
         </div>

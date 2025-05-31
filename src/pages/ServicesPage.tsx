@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/common/Button';
 import { Icon } from '@/components/common/Icon';
 import { SplitText } from '@/components/animation/SplitText';
+import { CTASection } from '@/components/common/CTASection';
 
 export default function ServicesPage() {
   const services = [
@@ -18,7 +19,7 @@ export default function ServicesPage() {
       id: 'branding'
     },
     {
-      icon: 'code',
+      icon: 'computerDesktop',
       title: 'Web Development',
       description: 'High-performance websites that combine simple & intuitive user design with extended functionality to bring your ideal website to life.',
       features: [
@@ -110,29 +111,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to <SplitText text="Transform" className="text-primary"
-                  delay={0.1}
-                  duration={0.8}
-                  ease="power4.out"
-                  splitType="chars"
-                  from={{ opacity: 0, y: 40 }}
-                  to={{ opacity: 1, y: 0 }} /> Your Digital Presence?
-          </h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help your business grow with our digital solutions.
-          </p>
-          <Button 
-            variant="outline"
-            size="lg"
-            onClick={() => window.location.href = '/contact'}
-          >
-            Schedule a Consultation
-          </Button>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Transform Your Digital Presence?"
+        highlightedText="Transform"
+        description="Let's discuss how we can help your business grow with our digital solutions."
+        buttonText="Schedule a Consultation"
+        buttonAction={() => window.location.href = '/contact'}
+        buttonVariant="outline"
+        backgroundColor="secondary"
+      />
     </div>
   );
 }

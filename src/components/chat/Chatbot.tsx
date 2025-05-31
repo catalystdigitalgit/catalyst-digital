@@ -65,7 +65,6 @@ export function Chatbot() {
       setInputValue('');
       setShowQuestions(false);
 
-      // Add contact button after a short delay
       setTimeout(() => {
         setMessages(prev => [
           ...prev,
@@ -95,20 +94,18 @@ export function Chatbot() {
         <Icon name="chatBubbleOvalLeft" size="lg" className="text-white" />
       </Button>
 
-      {/* Chat Window */}
       <div
         className={cn(
-          'fixed bottom-4 right-4 w-[400px] bg-background rounded-lg border shadow-lg transition-all duration-300 z-50',
+          'fixed bottom-4 right-4 w-[400px] bg-background rounded-md border shadow-lg transition-all duration-300 z-50',
           'transform',
           isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 pointer-events-none'
         )}
       >
-        {/* Header */}
         <div className="p-4 border-b">
           <div className="flex items-center justify-between mb-1">
             <h3 className="text-xl font-semibold">Chat with us</h3>
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               className="h-8 w-8 p-0"
               onClick={() => setIsOpen(false)}
@@ -121,7 +118,6 @@ export function Chatbot() {
           </p>
         </div>
 
-        {/* Chat Content */}
         <div className="h-[400px] overflow-y-auto p-6">
           {messages.map(message => (
             <div
@@ -158,7 +154,6 @@ export function Chatbot() {
           )}
         </div>
 
-        {/* Input Area */}
         <div className="p-4 border-t">
           <div className="relative">
             <input
