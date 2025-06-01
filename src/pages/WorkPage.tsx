@@ -5,9 +5,11 @@ export default function WorkPage() {
   const projects = [
     {
       title: "Dazy Chain",
+      url: "https://dazychain.uk/",
       images: [
         "/DazyChainWeb.png",
-        "/DazyChainRing.jpg"
+        "/DazyChainSocials.png",
+        "/DazyChainRing.jpg",
       ],
       category: "Branding & E-commerce",
       description: "Elevated their digital presence with premium product photography, strategic paid advertising campaigns, and comprehensive social media management. Our custom Shopify solution streamlined their e-commerce operations while maintaining a cohesive brand identity across all touchpoints.",
@@ -15,9 +17,11 @@ export default function WorkPage() {
     },
     {
       title: "The Party Booth Co.",
+      url: "https://partyboothco.co.uk/",
       images: [
-        "/DazyChainWeb.png",
-        "/DazyChainRing.jpg"
+        "/PartyBoothCoDesigns.png",
+        "/PartyBoothCoWebsite.png",
+        "/PartyBoothCoPhotography.webp",
       ],
       category: "Web Design & Development",
       description: "Transforming photo booths into an unforgettable brand presence. We crafted a bespoke logo, business cards, and captivating website that effortlessly handles client deposits and payments to eye-catching pamphlets.",
@@ -50,16 +54,21 @@ export default function WorkPage() {
                 className="bg-card border rounded-card overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="aspect-video relative overflow-hidden">
-                  <Slider showArrows showDots className="h-full">
+                  <Slider 
+                    showArrows 
+                    showDots 
+                    className="h-full"
+                    options={{ loop: true }}
+                  >
                     {project.images.map((image, imageIndex) => (
                       <div 
                         key={imageIndex}
-                        className="flex-[0_0_100%] min-w-0 h-full relative"
+                        className="relative h-full w-full flex-[0_0_100%]"
                       >
                         <img 
                           src={image} 
                           alt={`${project.title} - Image ${imageIndex + 1}`}
-                          className="absolute inset-0 w-full h-full object-cover"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     ))}
@@ -71,7 +80,21 @@ export default function WorkPage() {
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/90">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="relative group text-foreground"
+                    >
+                      {project.title}
+                      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-[110%]"></span>
+                    </a>
+                  </h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (

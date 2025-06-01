@@ -14,13 +14,16 @@ interface SliderProps {
 }
 
 export function Slider({
-  options = { align: 'start', containScroll: 'trimSnaps' },
+  options = { align: 'start', loop: false, containScroll: 'trimSnaps' },
   className,
   children,
   showArrows = true,
   showDots = true,
 }: SliderProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    ...options,
+    watchDrag: true,
+  });
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -47,15 +50,23 @@ export function Slider({
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    
     setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+    
+    // Initial call to set correct states
+    onSelect();
+    
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
   }, [emblaApi, onSelect]);
 
   return (
     <div className={cn('relative group', className)}>
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex h-full">
           {children}
         </div>
@@ -71,10 +82,10 @@ export function Slider({
               'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
               'opacity-0 group-hover:opacity-100 transition-all duration-200 z-10',
-              prevBtnDisabled && 'hidden'
+              !options.loop && prevBtnDisabled && 'hidden'
             )}
             onClick={scrollPrev}
-            disabled={prevBtnDisabled}
+            disabled={!options.loop && prevBtnDisabled}
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
@@ -87,10 +98,10 @@ export function Slider({
               'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
               'opacity-0 group-hover:opacity-100 transition-all duration-200 z-10',
-              nextBtnDisabled && 'hidden'
+              !options.loop && nextBtnDisabled && 'hidden'
             )}
             onClick={scrollNext}
-            disabled={nextBtnDisabled}
+            disabled={!options.loop && nextBtnDisabled}
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
