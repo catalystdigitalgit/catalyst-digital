@@ -125,6 +125,16 @@ export default function HomePage() {
       {/* Services Overview */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                We offer comprehensive digital solutions to help your business thrive in the digital age.
+                From branding to e-commerce, we've got you covered.
+              </p>
+            </div>
+          </AnimatedSection>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((item, index) => (
               <AnimatedSection key={index} delay={index * 200}>
@@ -220,36 +230,51 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="max-w-4xl mx-auto relative before:absolute before:inset-0 before:ml-4 md:before:mx-auto before:w-0.5 before:h-full before:bg-border">
             {[
               {
-                number: '01',
+                icon: 'search',
                 title: 'Discovery',
-                description: 'We start by understanding your business, goals, and target audience.'
+                description: 'We start by understanding your business, goals, and target audience through in-depth consultations and research.'
               },
               {
-                number: '02',
+                icon: 'lightbulb',
                 title: 'Strategy',
-                description: 'Develop a comprehensive plan tailored to your specific needs.'
+                description: 'Develop a comprehensive plan tailored to your specific needs, outlining key milestones and deliverables.'
               },
               {
-                number: '03',
+                icon: 'code',
                 title: 'Creation',
-                description: 'Execute the strategy with our expert team of designers and developers.'
+                description: 'Execute the strategy with our expert team of designers and developers, ensuring quality at every step.'
               },
               {
-                number: '04',
+                icon: 'rocket',
                 title: 'Launch',
-                description: 'Deploy your project and provide ongoing support and optimization.'
+                description: 'Deploy your project with thorough testing and provide ongoing support and optimization for continued success.'
               }
             ].map((step, index) => (
-              <AnimatedSection key={index} delay={index * 200}>
-                <div className="relative bg-card border rounded-lg p-6">
-                  <span className="text-4xl font-bold text-primary/20 absolute top-4 right-4">
-                    {step.number}
-                  </span>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
+              <AnimatedSection 
+                key={index} 
+                delay={index * 200}
+                className={cn(
+                  'relative flex items-start mb-12 last:mb-0',
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                )}
+              >
+                <div className={cn(
+                  'absolute left-0 md:left-1/2 w-8 h-8 bg-primary rounded-full border-4 border-background transform -translate-x-1/2 z-10',
+                  'flex items-center justify-center text-background'
+                )}>
+                  <Icon name={step.icon} size="sm" />
+                </div>
+                <div className={cn(
+                  'ml-12 md:ml-0 md:w-1/2',
+                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                )}>
+                  <div className="bg-card border rounded-lg p-6">
+                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground">{step.description}</p>
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
