@@ -165,7 +165,7 @@ export default function HomePage() {
               onClick={() => navigate('/contact')}
               rightIcon={<ArrowUpRight className="h-5 w-5" />}
             >
-              Let's Chat
+              Let's Talk Business
             </Button>
           </div>
         </div>
