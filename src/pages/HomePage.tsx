@@ -124,43 +124,40 @@ export default function HomePage() {
 
       {/* Services Overview */}
       <section className="py-20 bg-card">
-        <div className="container mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                We offer comprehensive digital solutions to help your business thrive in the digital age.
-                From branding to e-commerce, we've got you covered.
-              </p>
-            </div>
-          </AnimatedSection>
+        <div className="container mx-auto">
+          <div className="px-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl">
+              We offer comprehensive digital solutions to help your business thrive in the digital age.
+              From branding to e-commerce, we've got you covered.
+            </p>
+          </div>
 
-          <div className="flex overflow-x-auto pb-8 -mx-4 px-4 space-x-6 snap-x">
-            {services.map((item, index) => (
-              <AnimatedSection key={index} delay={index * 200}>
-                <div
-                  onClick={() => handleServiceClick(item.service)}
-                  className="bg-background border rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer group flex-none w-[300px] md:w-[400px] snap-center"
-                >
-                  <div className="h-12 w-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
-                    <Icon name={item.icon} size="lg" />
-                  </div>
-                  <h2 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h2>
-                  <p className="text-muted-foreground mb-4">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center text-primary">
-                    <span className="mr-2">Learn more</span>
-                    <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                  </div>
+          <div className="flex overflow-x-auto pl-4 space-x-4 snap-x pb-8 -mr-[100vw] pr-[100vw]">
+            {services.map((item) => (
+              <div
+                key={item.service}
+                onClick={() => handleServiceClick(item.service)}
+                className="bg-background border rounded-lg p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex-none w-[280px] snap-center"
+              >
+                <div className="h-10 w-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
+                  <Icon name={item.icon} />
                 </div>
-              </AnimatedSection>
+                <h2 className="text-xl font-medium mb-3 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h2>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {item.description}
+                </p>
+                <div className="flex items-center text-primary">
+                  <span className="text-sm mr-2">Learn more</span>
+                  <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="px-4 mt-12">
             <Button 
               variant="high"
               size="lg"
