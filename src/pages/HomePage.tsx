@@ -133,12 +133,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="flex overflow-x-auto pl-4 space-x-4 snap-x pb-8 -mr-[100vw] pr-[100vw]">
+          <div className="flex md:grid md:grid-cols-4 overflow-x-auto md:overflow-x-visible pl-4 md:px-4 space-x-4 md:space-x-0 md:gap-4 snap-x pb-8 md:pb-0 -mr-[100vw] md:mr-0 pr-[100vw] md:pr-0">
             {services.map((item) => (
               <div
                 key={item.service}
                 onClick={() => handleServiceClick(item.service)}
-                className="bg-background border rounded-lg p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex-none w-[280px] snap-center"
+                className="bg-background border rounded-lg p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex-none w-[280px] md:w-auto snap-center"
               >
                 <div className="h-10 w-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4">
                   <Icon name={item.icon} />
@@ -255,7 +255,7 @@ export default function HomePage() {
                 key={index} 
                 delay={index * 200}
                 className={cn(
-                  'relative flex items-start mb-8 last:mb-0',
+                  'relative flex items-start mb-4 last:mb-0',
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 )}
               >
@@ -269,9 +269,9 @@ export default function HomePage() {
                   'ml-12 md:ml-0 md:w-[45%]',
                   index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                 )}>
-                  <div className="bg-card border rounded-lg p-6">
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                  <div className="bg-card border rounded-lg p-4">
+                    <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground text-sm">{step.description}</p>
                   </div>
                 </div>
               </AnimatedSection>
