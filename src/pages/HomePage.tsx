@@ -98,7 +98,7 @@ export default function HomePage() {
               </div>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mb-8">
-              We are a digital agency specialising in transforming ideas into powerful digital experiences.
+              We're a digital agency specialising in transforming ideas into powerful digital experiences.
               From compelling brand identities to high-performance websites, we tailor every element to elevate your digital presence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
