@@ -338,7 +338,7 @@ export default function HomePage() {
                 onClick={() => navigate('/work')}
                 rightIcon={<ArrowRight className="h-5 w-5" />}
               >
-                View All Projects
+                View Projects
               </Button>
             </div>
           </AnimatedSection>
@@ -346,7 +346,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="text-center">
