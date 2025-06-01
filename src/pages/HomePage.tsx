@@ -40,25 +40,25 @@ export default function HomePage() {
     {
       icon: 'paintBrush',
       title: 'Branding & Identity',
-      description: 'Creating compelling brand identities through tailored visuals. Each element is crafted to resonate with your brand\'s narrative.',
+      description: 'Creating compelling brand identities through tailored visuals.',
       service: 'branding'
     },
     {
       icon: 'computerDesktop',
       title: 'Web Development',
-      description: 'High-performance websites that combine simple & intuitive user design with extended functionality to bring your ideal website to life.',
+      description: 'High-performance websites that combine clean  design & extended functionality.',
       service: 'development'
     },
     {
       icon: 'shoppingCart',
       title: 'E-commerce Solutions',
-      description: 'Scalable e-commerce solutions designed to drive growth, increase customer conversion rates, and provide seamless user experiences.',
+      description: 'Scalable e-commerce solutions designed to provide seamless user experiences.',
       service: 'ecommerce'
     },
     {
       icon: 'camera',
       title: 'Content Creation',
-      description: 'Working with you to curate a unique digital narrative that captures new audiences and builds customer loyalty.',
+      description: 'Curating a unique digital narrative that captures new audiences and builds customer loyalty.',
       service: 'content'
     }
   ];
