@@ -346,28 +346,14 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to Transform Your Digital Presence?
-              </h2>
-              <p className="text-primary-foreground/90 text-lg mb-8 max-w-2xl mx-auto">
-                Let's create something amazing together. Get in touch to discuss your project.
-              </p>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10"
-                onClick={() => navigate('/contact')}
-              >
-                Start Your Project
-              </Button>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Start Your Project?"
+        description="Let's create something amazing together. Contact us to discuss your project needs."
+        buttonText="Get in Touch"
+        buttonAction={() => window.location.href = '/contact'}
+        buttonVariant="outline"
+        backgroundColor="secondary"
+      />
     </div>
   );
 }
