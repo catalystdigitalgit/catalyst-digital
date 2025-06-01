@@ -35,6 +35,33 @@ function AnimatedSection({
 export default function HomePage() {
   const navigate = useNavigate();
 
+  const services = [
+    {
+      icon: 'paintBrush',
+      title: 'Branding & Identity',
+      description: 'Creating compelling brand identities through tailored visuals. Each element is crafted to resonate with your brand\'s narrative.',
+      service: 'branding'
+    },
+    {
+      icon: 'computerDesktop',
+      title: 'Web Development',
+      description: 'High-performance websites that combine simple & intuitive user design with extended functionality to bring your ideal website to life.',
+      service: 'development'
+    },
+    {
+      icon: 'shoppingCart',
+      title: 'E-commerce Solutions',
+      description: 'Scalable e-commerce solutions designed to drive growth, increase customer conversion rates, and provide seamless user experiences.',
+      service: 'ecommerce'
+    },
+    {
+      icon: 'camera',
+      title: 'Content Creation',
+      description: 'Working with you to curate a unique digital narrative that captures new audiences and builds customer loyalty.',
+      service: 'content'
+    }
+  ];
+
   const handleServiceClick = (service: string) => {
     navigate('/services');
     setTimeout(() => {
@@ -99,37 +126,38 @@ export default function HomePage() {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-8">
-              {[
-                { title: 'Branding & Identity', service: 'branding', icon: 'paintBrush' },
-                { title: 'Web Development', service: 'development', icon: 'computerDesktop' },
-                { title: 'E-Commerce Solutions', service: 'ecommerce', icon: 'shoppingCart' },
-                { title: 'Content Creation', service: 'content', icon: 'camera' }
-              ].map((item) => (
+            {services.map((item, index) => (
+              <AnimatedSection key={index} delay={index * 200}>
                 <div
-                  key={item.service}
                   onClick={() => handleServiceClick(item.service)}
-                  className="group cursor-pointer flex items-center gap-3"
+                  className="bg-background border rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer group"
                 >
-                  <div className="h-10 w-10 bg-primary/10 text-primary rounded-md flex items-center justify-center">
-                    <Icon name={item.icon} />
+                  <div className="h-12 w-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
+                    <Icon name={item.icon} size="lg" />
                   </div>
-                  <h2 className="text-2xl font-medium relative inline-block">
+                  <h2 className="text-2xl font-medium mb-3 group-hover:text-primary transition-colors">
                     {item.title}
-                    <span className="absolute -bottom-1 left-0 w-[120%] h-0.5 bg-primary transform origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                   </h2>
+                  <p className="text-muted-foreground mb-4">
+                    {item.description}
+                  </p>
+                  <div className="flex items-center text-primary">
+                    <span className="mr-2">Learn more</span>
+                    <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              ))}
+              </AnimatedSection>
+            ))}
+            <div className="md:col-span-2 mt-8 text-center">
+              <Button 
+                variant="high"
+                size="lg"
+                onClick={() => navigate('/contact')}
+                rightIcon={<ArrowUpRight className="h-5 w-5" />}
+              >
+                Book a Call
+              </Button>
             </div>
-            <Button 
-              variant="high"
-              size="lg"
-              className="w-full mt-auto"
-              rightIcon={<ArrowUpRight className="h-5 w-5" />}
-              onClick={() => navigate('/contact')}
-            >
-              Book a Call
-            </Button>
           </div>
         </div>
       </section>
