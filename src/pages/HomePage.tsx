@@ -135,12 +135,12 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex overflow-x-auto pb-8 -mx-4 px-4 space-x-6 snap-x">
             {services.map((item, index) => (
               <AnimatedSection key={index} delay={index * 200}>
                 <div
                   onClick={() => handleServiceClick(item.service)}
-                  className="bg-background border rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                  className="bg-background border rounded-lg p-8 hover:shadow-lg transition-all duration-300 cursor-pointer group flex-none w-[300px] md:w-[400px] snap-center"
                 >
                   <div className="h-12 w-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
                     <Icon name={item.icon} size="lg" />
@@ -158,16 +158,17 @@ export default function HomePage() {
                 </div>
               </AnimatedSection>
             ))}
-            <div className="md:col-span-2 mt-8 text-center">
-              <Button 
-                variant="high"
-                size="lg"
-                onClick={() => navigate('/contact')}
-                rightIcon={<ArrowUpRight className="h-5 w-5" />}
-              >
-                Book a Call
-              </Button>
-            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              variant="high"
+              size="lg"
+              onClick={() => navigate('/contact')}
+              rightIcon={<ArrowUpRight className="h-5 w-5" />}
+            >
+              Book a Call
+            </Button>
           </div>
         </div>
       </section>
@@ -221,7 +222,7 @@ export default function HomePage() {
       <section className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <AnimatedSection>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Process</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 We follow a proven process to ensure every project is delivered successfully
@@ -257,7 +258,7 @@ export default function HomePage() {
                 key={index} 
                 delay={index * 200}
                 className={cn(
-                  'relative flex items-start mb-12 last:mb-0',
+                  'relative flex items-start mb-8 last:mb-0',
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 )}
               >
@@ -268,8 +269,8 @@ export default function HomePage() {
                   <Icon name={step.icon} size="sm" />
                 </div>
                 <div className={cn(
-                  'ml-12 md:ml-0 md:w-1/2',
-                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
+                  'ml-12 md:ml-0 md:w-[45%]',
+                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                 )}>
                   <div className="bg-card border rounded-lg p-6">
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
