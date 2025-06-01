@@ -5,6 +5,7 @@ import { SplitText } from '@/components/animation/SplitText';
 import { Icon } from '@/components/common/Icon';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';
+import { CTASection } from '@/components/common/CTASection';
 
 function AnimatedSection({ 
   children, 
@@ -350,7 +351,7 @@ export default function HomePage() {
         title="Ready to Start Your Project?"
         description="Let's create something amazing together. Contact us to discuss your project needs."
         buttonText="Get in Touch"
-        buttonAction={() => window.location.href = '/contact'}
+        buttonAction={() => navigate('/contact')}
         buttonVariant="outline"
         backgroundColor="secondary"
       />
