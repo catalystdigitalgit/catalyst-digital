@@ -348,7 +348,7 @@ export default function HomePage() {
 
       <CTASection
         title="Ready to Start Your Project?"
-        description="Let's create something amazing together. Contact us to discuss your project needs."
+        description="Let's create something impactful together. Get in touch and we can explore your project needs."
         buttonText="Get in Touch"
         buttonAction={() => navigate('/contact')}
         buttonVariant="outline"
