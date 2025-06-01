@@ -244,7 +244,7 @@ export default function HomePage() {
               {
                 icon: 'code',
                 title: 'Creation',
-                description: 'Execute the strategy using cutting-edge development practices and AI-powered tools for efficient, high-quality delivery.'
+                description: 'Us cutting-edge development practices and AI-powered tools for efficient, high-quality delivery.'
               },
               {
                 icon: 'rocket',
