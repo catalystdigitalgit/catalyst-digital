@@ -244,12 +244,12 @@ export default function HomePage() {
               {
                 icon: 'code',
                 title: 'Creation',
-                description: 'Us cutting-edge development practices and AI-powered tools for efficient, high-quality delivery.'
+                description: 'Using cutting-edge development practices and AI-powered tools for efficient, high-quality delivery.'
               },
               {
                 icon: 'rocket',
                 title: 'Launch',
-                description: 'Deploy your project with thorough testing and provide ongoing support and optimization for continued success.'
+                description: 'Deploy your project with thorough testing, with the option to provide ongoing support and updates.'
               }
             ].map((step, index) => (
               <AnimatedSection 
