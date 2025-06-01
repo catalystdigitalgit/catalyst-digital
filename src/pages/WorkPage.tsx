@@ -6,8 +6,8 @@ export default function WorkPage() {
     {
       title: "Dazy Chain",
       images: [
-        "/images/dazy-chain-1.jpg",
-        "/images/dazy-chain-2.jpg"
+        "/DazyChainWeb.png",
+        "/DazyChainRing.jpg"
       ],
       category: "Branding & E-commerce",
       description: "Elevated their digital presence with premium product photography, strategic paid advertising campaigns, and comprehensive social media management. Our custom Shopify solution streamlined their e-commerce operations while maintaining a cohesive brand identity across all touchpoints.",
@@ -16,9 +16,8 @@ export default function WorkPage() {
     {
       title: "The Party Booth Co.",
       images: [
-        "/images/party-booth-1.jpg",
-        "/images/party-booth-2.jpg",
-        "/images/party-booth-3.jpg"
+        "/DazyChainWeb.png",
+        "/DazyChainRing.jpg"
       ],
       category: "Web Design & Development",
       description: "Transforming photo booths into an unforgettable brand presence. We crafted a bespoke logo, business cards, and captivating website that effortlessly handles client deposits and payments to eye-catching pamphlets.",
@@ -28,7 +27,6 @@ export default function WorkPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
@@ -43,7 +41,6 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Projects Grid */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -73,9 +70,6 @@ export default function WorkPage() {
                     <span className="text-sm text-primary font-medium">
                       {project.category}
                     </span>
-                    <span className="text-sm text-muted-foreground">
-                      {project.client}
-                    </span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
@@ -96,7 +90,6 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <CTASection
         title="Ready to Start Your Project?"
         description="Let's create something amazing together. Contact us to discuss your project needs."

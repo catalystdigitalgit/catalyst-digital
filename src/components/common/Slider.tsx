@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react';
+import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaOptionsType } from 'embla-carousel';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/common/Button';
 import { cn } from '@/lib/utils';
@@ -55,7 +56,7 @@ export function Slider({
   return (
     <div className={cn('relative group', className)}>
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex h-full">
           {children}
         </div>
       </div>
@@ -63,13 +64,13 @@ export function Slider({
       {showArrows && (
         <>
           <Button
-            variant="ghost"
+            variant="low"
             size="sm"
             className={cn(
               'absolute left-4 top-1/2 -translate-y-1/2',
               'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
-              'opacity-0 group-hover:opacity-100 transition-all duration-200',
+              'opacity-0 group-hover:opacity-100 transition-all duration-200 z-10',
               prevBtnDisabled && 'hidden'
             )}
             onClick={scrollPrev}
@@ -79,13 +80,13 @@ export function Slider({
           </Button>
           
           <Button
-            variant="ghost"
+            variant="low"
             size="sm"
             className={cn(
               'absolute right-4 top-1/2 -translate-y-1/2',
               'bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground',
               'rounded-full p-2 shadow-md',
-              'opacity-0 group-hover:opacity-100 transition-all duration-200',
+              'opacity-0 group-hover:opacity-100 transition-all duration-200 z-10',
               nextBtnDisabled && 'hidden'
             )}
             onClick={scrollNext}
