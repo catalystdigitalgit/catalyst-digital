@@ -346,7 +346,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <CTASection
         title="Ready to Start Your Project?"
         description="Let's create something amazing together. Contact us to discuss your project needs."
