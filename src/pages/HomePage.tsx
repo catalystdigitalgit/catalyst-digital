@@ -40,7 +40,7 @@ export default function HomePage() {
     {
       icon: 'paintBrush',
       title: 'Branding & Identity',
-      description: 'Creating compelling brand identities through tailored visuals and narrative driven content.',
+      description: 'Creating compelling brand identities through tailored visuals and narrative driven design.',
       service: 'branding'
     },
     {
