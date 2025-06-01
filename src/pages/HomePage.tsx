@@ -234,12 +234,12 @@ export default function HomePage() {
               {
                 icon: 'search',
                 title: 'Discovery',
-                description: 'We start by understanding your business, goals, and target audience through in-depth consultations and research.'
+                description: 'We start by understanding your business, goals, and target audience.'
               },
               {
                 icon: 'lightbulb',
                 title: 'Strategy',
-                description: 'Develop a comprehensive plan tailored to your specific needs, outlining key milestones and deliverables.'
+                description: 'Develop a plan tailored to your specific needs, outlining key milestones and deliverables.'
               },
               {
                 icon: 'code',
