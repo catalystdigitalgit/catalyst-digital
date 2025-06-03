@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/common/Button';
 import { Menu, X } from 'lucide-react';
@@ -13,6 +13,8 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,22 +28,17 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled
+        'w-full transition-all duration-300 z-50',
+        isHomePage && !isScrolled && !isMenuOpen
+          ? 'absolute top-0 left-0 right-0' 
+          : 'fixed top-0 left-0 right-0',
+        isScrolled || isMenuOpen
           ? 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b shadow-md'
           : 'bg-transparent'
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <NavLink 
-              to="/" 
-              className="text-2xl font-bold text-primary cursor-pointer"
-            >
-              Catalyst Digital
-            </NavLink>
-          </div>
 
           <nav className="hidden md:flex md:items-center md:space-x-6">
             {navItems.map((item) => (
@@ -61,8 +58,18 @@ export default function Header() {
             {/* <ThemeToggle /> */}
           </nav>
 
+
+          <div className="flex items-center">
+            <NavLink 
+              to="/" 
+              className="text-2xl font-bold hover:text-primary cursor-pointer transition-colors duration-300"
+            >
+              Catalyst Digital
+            </NavLink>
+          </div>
+
           <div className="hidden md:block">
-            <Button variant="high">Get Started</Button>
+            <Button variant="outline">Get Started</Button>
           </div>
 
           <div className="flex items-center space-x-4 md:hidden">

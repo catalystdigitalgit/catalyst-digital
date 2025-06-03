@@ -6,13 +6,13 @@ interface UseIntersectionObserverProps {
   rootMargin?: string;
 }
 
-export function useIntersectionObserver({
+export function useIntersectionObserver<T extends Element = Element>({
   threshold = 0.1,
   root = null,
   rootMargin = '0px',
 }: UseIntersectionObserverProps = {}) {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement | null>(null);
+  const elementRef = useRef<T | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -7,9 +7,9 @@ export default function WorkPage() {
       title: "Dazy Chain",
       url: "https://dazychain.uk/",
       images: [
+        "/DazyChainRing.jpg",
         "/DazyChainWeb.png",
         "/DazyChainSocials.png",
-        "/DazyChainRing.jpg",
       ],
       category: "Branding & E-commerce",
       description: "Elevated their digital presence with premium product photography, strategic paid advertising campaigns, and comprehensive social media management. Our custom Shopify solution streamlined their e-commerce operations while maintaining a cohesive brand identity across all touchpoints.",
@@ -19,8 +19,8 @@ export default function WorkPage() {
       title: "The Party Booth Co.",
       url: "https://partyboothco.co.uk/",
       images: [
-        "/PartyBoothCoDesigns.png",
         "/PartyBoothCoWebsite.png",
+        "/PartyBoothCoDesigns.png",
         "/PartyBoothCoPhotography.webp",
       ],
       category: "Web Design & Development",
@@ -31,7 +31,7 @@ export default function WorkPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-28 bg-gradient-to-br from-background to-secondary/30">
+      <section className="py-40 md:py-32 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">

@@ -7,11 +7,12 @@ import MouseParticles from 'react-mouse-particles';
 import MainLayout from '@/components/layout/MainLayout';
 
 // Pages
-import HomePage from '@/pages/HomePage';
-import ServicesPage from '@/pages/ServicesPage';
-import WorkPage from '@/pages/WorkPage';
-import ContactPage from '@/pages/ContactPage';
-import NotFoundPage from '@/pages/NotFoundPage';
+import HomePage from '@/pages/home';
+import ServicesPage from '@/pages/services';
+import WorkPage from '@/pages/work';
+import ContactPage from '@/pages/contact';
+import FeaturesPage from '@/pages/features';
+import NotFoundPage from '@/pages/not-found';
 
 // Components
 import { Loader } from '@/components/common/Loader';
@@ -39,6 +40,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="work" element={<WorkPage />} />
+            <Route path="features" element={<FeaturesPage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
@@ -46,7 +48,7 @@ function App() {
       </Suspense>
       <Toaster />
       <DesignToolbox />
-      <Chatbot />
+      {/* <Chatbot /> */}
       <ModalProvider />
     </BrowserRouter>
   );

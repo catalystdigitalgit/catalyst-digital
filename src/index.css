@@ -33,6 +33,7 @@
     
     /* Primary colors - Yellow theme */
     --primary: 48 74% 74%;
+    --primary-dark: 49 13% 34%;  /* #65624E */
     --primary-foreground: 0 0% 10%;
     
     /* Secondary colors */

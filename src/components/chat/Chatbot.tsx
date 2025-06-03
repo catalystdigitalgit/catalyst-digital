@@ -78,20 +78,15 @@ export function Chatbot() {
     }
   };
 
-  const resetChat = () => {
-    setMessages([]);
-    setShowQuestions(true);
-  };
-
   return (
     <>
       <Button
-        variant="high"
+        variant="outline"
         size="md"
-        className="fixed bottom-4 right-4 rounded-full shadow-lg z-50 h-14 w-14 p-0"
+        className="fixed bottom-4 right-4 rounded-full shadow-lg z-50 h-14 w-14 p-0 bg-opacity-20 bg-background backdrop-blur-md"
         onClick={() => setIsOpen(true)}
       >
-        <Icon name="chatBubbleOvalLeft" size="lg" className="text-white" />
+        <Icon name="chatBubbleOvalLeft" size="lg" className="text-foreground" />
       </Button>
 
       <div
