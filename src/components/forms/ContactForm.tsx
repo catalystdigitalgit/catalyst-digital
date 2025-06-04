@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { toast } from 'sonner';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { CheckCircle, AlertCircle, X } from 'lucide-react';
 
 import {
   Form,
@@ -27,41 +26,17 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-type NotificationStatus = 'success' | 'error' | null;
-
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isLocalhost, setIsLocalhost] = useState(false);
-  const [notification, setNotification] = useState<{ status: NotificationStatus; message: string }>({
-    status: null,
-    message: '',
-  });
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const notificationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Check if running on localhost
     const host = window.location.hostname;
     setIsLocalhost(host === 'localhost' || host === '127.0.0.1');
   }, []);
-
-  // Clear notification after a delay
-  useEffect(() => {
-    if (notification.status && notificationTimeoutRef.current === null) {
-      notificationTimeoutRef.current = setTimeout(() => {
-        setNotification({ status: null, message: '' });
-        notificationTimeoutRef.current = null;
-      }, 5000);
-    }
-
-    return () => {
-      if (notificationTimeoutRef.current) {
-        clearTimeout(notificationTimeoutRef.current);
-        notificationTimeoutRef.current = null;
-      }
-    };
-  }, [notification]);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -76,18 +51,6 @@ export function ContactForm() {
     setCaptchaToken(token);
   };
 
-  const showNotification = (status: NotificationStatus, message: string) => {
-    setNotification({ status, message });
-  };
-
-  const dismissNotification = () => {
-    setNotification({ status: null, message: '' });
-    if (notificationTimeoutRef.current) {
-      clearTimeout(notificationTimeoutRef.current);
-      notificationTimeoutRef.current = null;
-    }
-  };
-
   const onSubmit = async (data: FormValues) => {
     // Only require CAPTCHA in production
     if (!isLocalhost && !captchaToken) {
@@ -96,59 +59,101 @@ export function ContactForm() {
     }
 
     setIsSubmitting(true);
-    showNotification(null, ''); // Clear any existing notification
     
     try {
       // FormSubmit.co endpoint
       const FORM_ENDPOINT = import.meta.env.VITE_FORM_EMAIL || 'contact@catalystdigital.uk';
-      const formSubmitUrl = `https://formsubmit.co/${FORM_ENDPOINT}`;
       
-      // Include captcha token with form data
-      const formData = new FormData();
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('message', data.message);
+      // Create a hidden iframe to handle the form submission
+      const iframe = document.createElement('iframe');
+      iframe.name = 'contact-form-iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
       
-      // Only include captcha token if we have one (will be null on localhost)
+      // Create and submit a hidden form targeting the iframe
+      const formEl = document.createElement('form');
+      formEl.method = 'POST';
+      formEl.action = `https://formsubmit.co/${FORM_ENDPOINT}`;
+      formEl.target = 'contact-form-iframe';
+      formEl.style.display = 'none';
+      
+      // Add form fields
+      const nameField = document.createElement('input');
+      nameField.name = 'name';
+      nameField.value = data.name;
+      formEl.appendChild(nameField);
+      
+      const emailField = document.createElement('input');
+      emailField.name = 'email';
+      emailField.value = data.email;
+      formEl.appendChild(emailField);
+      
+      const messageField = document.createElement('input');
+      messageField.name = 'message';
+      messageField.value = data.message;
+      formEl.appendChild(messageField);
+      
+      // Add subject field
+      const subjectField = document.createElement('input');
+      subjectField.type = 'hidden';
+      subjectField.name = '_subject';
+      subjectField.value = 'New Contact Form Submission';
+      formEl.appendChild(subjectField);
+      
+      // Add captcha response if available
       if (captchaToken) {
-        formData.append('g-recaptcha-response', captchaToken);
+        const captchaResponseField = document.createElement('input');
+        captchaResponseField.type = 'hidden';
+        captchaResponseField.name = 'g-recaptcha-response';
+        captchaResponseField.value = captchaToken;
+        formEl.appendChild(captchaResponseField);
+      } else {
+        // If we're on localhost or testing, bypass captcha
+        const bypassField = document.createElement('input');
+        bypassField.type = 'hidden';
+        bypassField.name = '_captcha';
+        bypassField.value = 'false';
+        formEl.appendChild(bypassField);
       }
       
-      formData.append('_subject', 'New Contact Form Submission');
+      // Add autoresponse option
+      const autoResponseField = document.createElement('input');
+      autoResponseField.type = 'hidden';
+      autoResponseField.name = '_autoresponse';
+      autoResponseField.value = 'Thank you for contacting us! We will get back to you soon.';
+      formEl.appendChild(autoResponseField);
       
-      // Send data to FormSubmit
+      // Add form to body, submit it, then remove it
+      document.body.appendChild(formEl);
+      formEl.submit();
+      
+      // Log submission (helpful for debugging)
       console.log(`Sending form submission to FormSubmit.co ${isLocalhost ? '(from localhost)' : ''}`);
-      const response = await fetch(formSubmitUrl, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
       
-      const successMessage = isLocalhost 
-        ? 'Message sent successfully from localhost!' 
-        : 'Message sent successfully!';
+      // Clean up after a short delay to ensure submission
+      setTimeout(() => {
+        document.body.removeChild(formEl);
+        document.body.removeChild(iframe);
         
-      toast.success(successMessage);
-      showNotification('success', successMessage);
-      form.reset();
-      setCaptchaToken(null);
+        const successMessage = isLocalhost 
+          ? 'Message sent successfully from localhost!' 
+          : 'Message sent successfully!';
+          
+        toast.success(successMessage);
+        form.reset();
+        setCaptchaToken(null);
+        
+        // Reset the captcha in production
+        if (!isLocalhost) {
+          recaptchaRef.current?.reset();
+        }
+        
+        setIsSubmitting(false);
+      }, 1000);
       
-      // Reset the captcha in production
-      if (!isLocalhost) {
-        recaptchaRef.current?.reset();
-      }
     } catch (error) {
       console.error('Error submitting form:', error);
-      const errorMessage = 'Failed to send message. Please try again.';
-      toast.error(errorMessage);
-      showNotification('error', errorMessage);
-    } finally {
+      toast.error('Failed to send message. Please try again.');
       setIsSubmitting(false);
     }
   };
@@ -209,7 +214,7 @@ export function ContactForm() {
           <div className="mt-6 mb-4">
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LcZR1UrAAAAAEV2_aAk1dBV83sXOd-owb2DEyY-"
+              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               onChange={handleCaptchaChange}
             />
             {!captchaToken && form.formState.isSubmitted && (
@@ -221,34 +226,6 @@ export function ContactForm() {
         {isLocalhost && (
           <div className="mt-6 mb-4 p-3 bg-amber-50 border border-amber-200 rounded text-amber-800 text-sm">
             <p>Running in localhost mode: reCAPTCHA verification is bypassed for testing</p>
-          </div>
-        )}
-
-        {/* Status notification */}
-        {notification.status && (
-          <div 
-            className={cn(
-              "relative flex items-center p-4 rounded-md mb-4 text-sm font-medium animate-in fade-in",
-              notification.status === 'success' && "bg-green-50 text-green-800 border border-green-200",
-              notification.status === 'error' && "bg-red-50 text-red-800 border border-red-200"
-            )}
-          >
-            <div className="mr-3 flex-shrink-0">
-              {notification.status === 'success' ? (
-                <CheckCircle className="h-5 w-5 text-green-500" />
-              ) : (
-                <AlertCircle className="h-5 w-5 text-red-500" />
-              )}
-            </div>
-            <p>{notification.message}</p>
-            <button 
-              type="button"
-              onClick={dismissNotification}
-              className="absolute right-2 top-2 text-gray-400 hover:text-gray-600"
-              aria-label="Dismiss notification"
-            >
-              <X className="h-4 w-4" />
-            </button>
           </div>
         )}
 
