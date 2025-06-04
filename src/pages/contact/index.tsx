@@ -6,11 +6,11 @@ export default function ContactPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="py-40 md:py-32 bg-gradient-to-br from-background to-secondary/30">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             Get in Touch
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl">
             Have a question, or want to work together? We'd love to hear from you.
             Send us a message and we'll respond as soon as possible.
           </p>
@@ -24,9 +24,6 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form and our team will get back to you within 24 hours.
-              </p>
 
               <div className="space-y-6">
                 <div className="flex items-start">

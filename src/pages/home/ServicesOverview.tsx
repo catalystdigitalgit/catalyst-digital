@@ -69,7 +69,7 @@ export function ServicesOverview() {
                 </p>
                 <div className="flex items-center text-primary">
                   <span className="text-sm mr-2">Learn more</span>
-                  <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  {/* <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" /> */}
                 </div>
               </div>
             ))}
@@ -81,10 +81,10 @@ export function ServicesOverview() {
           <Button 
             variant="high"
             size="lg"
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/work')}
             rightIcon={<ArrowUpRight className="h-5 w-5" />}
           >
-            Let's Talk Projects
+            Our Services
           </Button>
         </div>
       </div>

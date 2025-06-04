@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/common/Button';
 import { Menu, X } from 'lucide-react';
@@ -15,6 +15,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,28 +39,30 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center">
+          {/* Left side - Navigation */}
+          <div className="w-1/3 flex justify-start">
+            <nav className="hidden md:flex md:items-center md:space-x-6">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    cn(
+                      'text-sm font-medium transition-colors hover:text-primary animated-underline',
+                      isActive ? 'text-primary' : 'text-foreground/80'
+                    )
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+              {/* <ThemeToggle /> */}
+            </nav>
+          </div>
 
-          <nav className="hidden md:flex md:items-center md:space-x-6">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  cn(
-                    'text-sm font-medium transition-colors hover:text-primary animated-underline',
-                    isActive ? 'text-primary' : 'text-foreground/80'
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            {/* <ThemeToggle /> */}
-          </nav>
-
-
-          <div className="flex items-center">
+          {/* Center - Logo */}
+          <div className="w-1/3 flex justify-center">
             <NavLink 
               to="/" 
               className="text-2xl font-bold hover:text-primary cursor-pointer transition-colors duration-300"
@@ -68,23 +71,26 @@ export default function Header() {
             </NavLink>
           </div>
 
-          <div className="hidden md:block">
-            <Button variant="outline">Get Started</Button>
-          </div>
+          {/* Right side - CTA Button */}
+          <div className="w-1/3 flex justify-end">
+            <div className="hidden md:block">
+              <Button variant="outline" onClick={() => navigate('/contact')}>Get Started</Button>
+            </div>
 
-          <div className="flex items-center space-x-4 md:hidden">
-            {/* <ThemeToggle /> */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+            <div className="flex items-center space-x-4 md:hidden">
+              {/* <ThemeToggle /> */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
