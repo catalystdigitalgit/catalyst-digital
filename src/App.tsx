@@ -1,23 +1,21 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
-import MouseParticles from 'react-mouse-particles';
 
 // Layouts
 import MainLayout from '@/components/layout/MainLayout';
 
-// Pages
-import HomePage from '@/pages/home';
-import ServicesPage from '@/pages/services';
-import WorkPage from '@/pages/work';
-import ContactPage from '@/pages/contact';
-import FeaturesPage from '@/pages/features';
-import NotFoundPage from '@/pages/not-found';
+// Lazy load pages
+const HomePage = lazy(() => import('@/pages/home'));
+const ServicesPage = lazy(() => import('@/pages/services'));
+const WorkPage = lazy(() => import('@/pages/work'));
+const ContactPage = lazy(() => import('@/pages/contact'));
+const FeaturesPage = lazy(() => import('@/pages/features'));
+const NotFoundPage = lazy(() => import('@/pages/not-found'));
 
 // Components
 import { Loader } from '@/components/common/Loader';
 import { DesignToolbox } from '@/components/design/DesignToolbox';
-import { Chatbot } from '@/components/chat/Chatbot';
 import { ModalProvider } from '@/components/providers/ModalProvider';
 
 function ScrollToTop() {

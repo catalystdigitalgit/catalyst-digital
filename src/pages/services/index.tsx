@@ -1,9 +1,11 @@
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { Icon } from '@/components/common/Icon';
 import { CTASection } from '@/components/common/CTASection';
 
 export default function ServicesPage() {
+  const navigate = useNavigate();
   const services = [
     {
       icon: 'paintBrush',
@@ -71,7 +73,7 @@ export default function ServicesPage() {
             <Button 
               variant="high" 
               size="lg"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigate('/contact')}
             >
               Get Started
             </Button>
@@ -114,7 +116,7 @@ export default function ServicesPage() {
         highlightedText="Transform"
         description="Let's discuss how we can help your business grow with our digital solutions."
         buttonText="Schedule a Consultation"
-        buttonAction={() => window.location.href = '/contact'}
+        buttonAction={() => navigate('/contact')}
         buttonVariant="outline"
         backgroundColor="secondary"
       />
