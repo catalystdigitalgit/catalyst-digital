@@ -65,7 +65,7 @@ export default function Header() {
           <div className="w-1/3 flex justify-center">
             <NavLink 
               to="/" 
-              className="text-2xl font-bold hover:text-primary cursor-pointer transition-colors duration-300"
+              className="text-2xl font-bold hover:text-primary cursor-pointer transition-colors duration-300 whitespace-nowrap"
             >
               Catalyst Digital
             </NavLink>

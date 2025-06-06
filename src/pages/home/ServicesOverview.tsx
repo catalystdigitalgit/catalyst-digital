@@ -45,7 +45,7 @@ export function ServicesOverview() {
 
   return (
     <section className="py-20 bg-card">
-      <div className="container mx-auto">
+      <div className="container-fluid pl-4 pr-0 md:px-4 md:pr-0">
         <div className="px-4 mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What We Do</h2>
         </div>
