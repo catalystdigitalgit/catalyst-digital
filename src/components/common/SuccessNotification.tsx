@@ -35,7 +35,7 @@ export function SuccessNotification({
 
   return (
     <div className={cn(
-      "fixed top-4 right-4 z-50 max-w-md w-full bg-background border border-border rounded-lg shadow-lg p-4 animate-slide-in-right",
+      "fixed top-4 right-4 left-4 md:left-auto z-50 max-w-md w-full bg-background border border-border rounded-lg shadow-lg p-4 animate-slide-in-right",
       className
     )}>
       <div className="flex items-start gap-3">

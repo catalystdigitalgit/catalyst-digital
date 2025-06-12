@@ -60,7 +60,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-48 md:py-48 md:pb-40 bg-gradient-to-br from-background to-secondary/30">
+      <section className="py-20 md:py-48 md:pb-40 bg-gradient-to-br from-background to-secondary/30">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
