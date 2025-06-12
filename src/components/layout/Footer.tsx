@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
+import { SuccessNotification } from '@/components/common/SuccessNotification';
+import { useFormSuccess } from '@/hooks/use-form-success';
 import { Mail } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { isNewsletterSuccess, clearSuccess } = useFormSuccess();
   
   const handleSubscribe = (e: React.FormEvent) => {
     setIsSubmitting(true);
@@ -18,7 +21,15 @@ export default function Footer() {
   };
   
   return (
-    <footer className="bg-card text-card-foreground border-t">
+    <>
+      <SuccessNotification
+        isVisible={isNewsletterSuccess}
+        onClose={clearSuccess}
+        title="Successfully Subscribed!"
+        message="Thank you for subscribing! We'll be in touch soon with updates and insights."
+      />
+      
+      <footer className="bg-card text-card-foreground border-t">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand column */}
@@ -119,5 +130,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

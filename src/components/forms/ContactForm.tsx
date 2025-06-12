@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
+import { SuccessNotification } from '@/components/common/SuccessNotification';
+import { useFormSuccess } from '@/hooks/use-form-success';
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const { isContactSuccess, clearSuccess } = useFormSuccess();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
@@ -17,12 +20,20 @@ export function ContactForm() {
   };
 
   return (
-    <form 
-      action="https://formsubmit.co/2a691052f277f4be38cd3142bd44895f" 
-      method="POST"
-      onSubmit={handleSubmit}
-      className="space-y-6"
-    >
+    <>
+      <SuccessNotification
+        isVisible={isContactSuccess}
+        onClose={clearSuccess}
+        title="Message Sent Successfully!"
+        message="Thank you for contacting us. We'll get back to you within 24 hours."
+      />
+      
+      <form 
+        action="https://formsubmit.co/2a691052f277f4be38cd3142bd44895f" 
+        method="POST"
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
       {/* FormSubmit configuration fields */}
       <input type="hidden" name="_subject" value="New Contact Form Submission - Catalyst Digital" />
       <input type="hidden" name="_next" value={`${window.location.origin}/contact?success=true`} />
@@ -86,5 +97,6 @@ export function ContactForm() {
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
+    </>
   );
 }
