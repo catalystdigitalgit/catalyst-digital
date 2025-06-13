@@ -1,21 +1,22 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { HeroSection } from '@/components/marketing/HeroSection';
+import { useNavigate } from 'react-router-dom';
 
 export default function ContactPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-background to-secondary/30">
-        <div className="container mx-auto px-4 text-left">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            Get in Touch
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl">
-            Have a question, or want to work together? We'd love to hear from you.
-            Send us a message and we'll respond as soon as possible.
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Get in Touch"
+        description="Have a question, or want to work together? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+        buttonText="Send Message"
+        buttonAction={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+        buttonVariant="high"
+        backgroundImage="/contact.png"
+      />
 
       {/* Contact Section */}
       <section className="py-20 bg-background">
@@ -46,7 +47,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-card p-8 rounded-lg border shadow-sm">
+            <div id="contact-form" className="bg-card p-8 rounded-lg border shadow-sm">
               <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
               <ContactForm />
             </div>

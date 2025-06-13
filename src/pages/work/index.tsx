@@ -1,7 +1,11 @@
 import { Slider } from '@/components/common/Slider';
 import { CTASection } from '@/components/common/CTASection';
+import { HeroSection } from '@/components/marketing/HeroSection';
+import { useNavigate } from 'react-router-dom';
 
 export default function WorkPage() {
+  const navigate = useNavigate();
+  
   const projects = [
     {
       title: "Dazy Chain",
@@ -31,21 +35,16 @@ export default function WorkPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-32 bg-gradient-to-br from-background to-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              Our Work
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl">
-              Explore our portfolio of successful projects and digital transformations.
-              Each project represents our commitment to excellence and innovation.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Our Work"
+        description="Explore our portfolio of successful projects and digital transformations. Each project represents our commitment to excellence and innovation."
+        buttonText="View Projects"
+        buttonAction={() => document.getElementById('projects-section')?.scrollIntoView({ behavior: 'smooth' })}
+        buttonVariant="high"
+        backgroundImage="/ourWork.png"
+      />
 
-      <section className="py-20 bg-background">
+      <section id="projects-section" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (

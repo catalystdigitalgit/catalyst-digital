@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { Icon } from '@/components/common/Icon';
 import { CTASection } from '@/components/common/CTASection';
+import { HeroSection } from '@/components/marketing/HeroSection';
 
 export default function ServicesPage() {
   const navigate = useNavigate();
@@ -60,26 +61,14 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 md:py-48 md:pb-40 bg-gradient-to-br from-background to-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              Digital Solutions for Modern Businesses
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl mb-8">
-              We offer comprehensive digital services to help your business thrive in the digital age.
-              From branding to e-commerce, we've got you covered.
-            </p>
-            <Button 
-              variant="high" 
-              size="lg"
-              onClick={() => navigate('/contact')}
-            >
-              Get Started
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title="Modern Solutions for Digital Businesses"
+        description="We offer comprehensive digital services to help your business thrive in the digital age. From branding to e-commerce, we've got you covered."
+        buttonText="Get Started"
+        buttonAction={() => navigate('/contact')}
+        buttonVariant="high"
+        backgroundImage="/whatWeDo.png"
+      />
 
       {/* Services Grid */}
       <section className="py-20 bg-background">
