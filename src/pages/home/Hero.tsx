@@ -21,7 +21,7 @@ export function Hero({
   const navigate = useNavigate();
 
   return (
-    <section className="h-screen bg-background flex items-end md:items-center relative overflow-hidden pb-10">
+    <section className="min-h-[80vh] md:min-h-screen bg-background flex items-end md:items-center relative overflow-hidden pb-10">
       {backgroundVideo && (
         <>
           <video 
