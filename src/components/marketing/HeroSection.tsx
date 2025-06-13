@@ -40,7 +40,7 @@ export function HeroSection({
               console.log('Background image loaded successfully:', backgroundImage);
             }}
           />
-          <div className="absolute inset-0 bg-black/50 z-[1] pointer-events-none" />
+          <div className="absolute inset-0 bg-black/55 z-[1] pointer-events-none" />
         </>
       )}
       <div className="container mx-auto px-4 relative z-[10]">

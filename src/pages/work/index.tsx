@@ -1,19 +1,16 @@
 import { Slider } from '@/components/common/Slider';
 import { CTASection } from '@/components/common/CTASection';
 import { HeroSection } from '@/components/marketing/HeroSection';
-import { useNavigate } from 'react-router-dom';
 
 export default function WorkPage() {
-  const navigate = useNavigate();
-  
   const projects = [
     {
       title: "Dazy Chain",
       url: "https://dazychain.uk/",
       images: [
         "/DazyChainRing.jpg",
-        "/DazyChainWeb.png",
         "/DazyChainSocials.png",
+        "/DazyChainShoot.png",
       ],
       category: "Branding & E-commerce",
       description: "Elevated their digital presence with premium product photography, strategic paid advertising campaigns, and comprehensive social media management. Our custom Shopify solution streamlined their e-commerce operations while maintaining a cohesive brand identity across all touchpoints.",
