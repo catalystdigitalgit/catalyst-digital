@@ -112,11 +112,10 @@ export default function Footer() {
               />
               <Button 
                 variant="high" 
-                size="sm" 
+                size="md" 
                 type="submit"
                 disabled={isSubmitting}
               >
-                <Mail className="h-4 w-4 mr-1" />
                 {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </Button>
             </form>
