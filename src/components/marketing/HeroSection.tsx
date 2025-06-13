@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/common/Button';
+import { Image } from '@unpic/react';
 
 interface HeroSectionProps {
   title: string;
@@ -28,18 +29,16 @@ export function HeroSection({
     >
       {backgroundImage && (
         <>
-          <img 
-            src={backgroundImage}
-            alt="Background"
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            onError={(e) => {
-              console.error('Failed to load background image:', backgroundImage);
-              console.error('Error event:', e);
-            }}
-            onLoad={() => {
-              console.log('Background image loaded successfully:', backgroundImage);
-            }}
-          />
+          <div className="absolute inset-0 w-full h-full z-0">
+            <Image
+              src={backgroundImage}
+              alt="Background"
+              layout="fullWidth"
+              priority={true}
+              background="auto"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="absolute inset-0 bg-black/55 z-[1] pointer-events-none" />
         </>
       )}

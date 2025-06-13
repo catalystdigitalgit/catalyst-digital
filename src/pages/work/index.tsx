@@ -1,6 +1,7 @@
 import { Slider } from '@/components/common/Slider';
 import { CTASection } from '@/components/common/CTASection';
 import { HeroSection } from '@/components/marketing/HeroSection';
+import { Image } from '@unpic/react';
 
 export default function WorkPage() {
   const projects = [
@@ -61,9 +62,13 @@ export default function WorkPage() {
                         key={imageIndex}
                         className="relative h-full w-full flex-[0_0_100%]"
                       >
-                        <img 
-                          src={image} 
+                        <Image
+                          src={image}
                           alt={`${project.title} - Image ${imageIndex + 1}`}
+                          layout="constrained"
+                          width={800}
+                          height={450}
+                          background="auto"
                           className="w-full h-full object-cover"
                         />
                       </div>
